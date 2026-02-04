@@ -53,12 +53,12 @@ a {
 }
 
 body {
-    background-image: url('../images/pink_background.gif');
+    background-image: url('../images/hearts_1.gif');
     background-size: cover;
 }
 
 h1 {
-    font-family: 'Daydream', sans-serif;
+    font-family: 'rainyhearts', sans-serif;
     font-size: 2em;
     font-weight: bold;
     text-align: center;
