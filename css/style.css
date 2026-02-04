@@ -84,11 +84,28 @@ p {
     font-family: 'rainyhearts';
 }
 
+label {
+    font-family: 'rainyhearts';
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+button {
+    font-family: 'rainyhearts';
+}
+
 /* --- Sound Button Styling --- */
 
 .button_container {
     display: grid;
     justify-items: center;
+}
+
+.answer_container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 #toggle_sound {
