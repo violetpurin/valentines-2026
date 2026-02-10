@@ -22,34 +22,34 @@ html, body {
     padding: 0;
 }
 
-#wrapper {
-    min-height: 100%;
-    position: relative;
+main.layout {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#main {
-    padding-bottom: 75px;
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  transition: opacity 0.5s ease;
 }
 
-.skip a:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    top: 20px;
-    border: 2px solid black;
-    color: black;
+.gif img {
+  max-width: 200px;
+  height: auto;
 }
 
-.skip a {
-    font-family: sans-serif;
-    position: absolute;
-    top: -40px;
-    color: black;
-    transition: 0.3s;
+.gif.left {
+  justify-self: end;
 }
 
-a {
-    text-decoration: none;
+.gif.right {
+  justify-self: start;
 }
 
 body {
@@ -59,29 +59,15 @@ body {
 
 h1 {
     font-family: 'rainyhearts', sans-serif;
-    font-size: 2em;
+    font-size: 4em;
     font-weight: bold;
-    text-align: center;
-    grid-column: 1 / -1;
     line-height: 1.5em;
-    margin: 50px;
-}
-
-.bio_container {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    margin: 50px;
-}
-
-.bio {
-    font-size: 175%;
-    text-align: center;
-    margin: 10px;
+    margin: 0;
 }
 
 p {
     font-family: 'rainyhearts';
+    font-size: 2em;
 }
 
 label {
@@ -90,13 +76,38 @@ label {
     font-weight: bold;
     display: block;
     text-align: center;
+    margin-bottom: 12px;
 }
 
 button {
     font-family: 'rainyhearts';
+    font-size: 2em;
 }
 
-/* --- Sound Button Styling --- */
+#inequality {
+  font-family: 'rainyhearts';
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.puzzle-layout.hidden {
+  display: none;
+}
+
+
+.puzzle-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.content.hidden {
+  display: none;
+}
+
+/* --- Button Styling --- */
 
 .button_container {
     display: grid;
@@ -108,350 +119,13 @@ button {
     grid-template-columns: auto auto auto auto;
 }
 
-#toggle_sound {
-    margin: 20px;
-    padding: 10px 20px;
-    font-family: 'Daydream', sans-serif;
-    font-size: 1em;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-#toggle_sound:hover {
-    color: black;
-    background-color: lightgrey;
-}
-
-#toggle_sound:focus {
-    outline: none;
-    color: black;
-    background-color: lightgrey;
-    border: 3px solid black;
-}
-
-/* --- Navigation Styling --- */
-
-.nav_bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav_bar {
-    background-color: black;
-    overflow: hidden;
-}
-
-.nav_bar a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 100%;
-    font-family: 'Daydream';
-}
-
-.nav_bar a:hover, .nav_bar a:focus {
-    background-color: lightgrey;
-    color: black;
-}
-
-.nav_bar a:focus {
-    outline: none;
-    border: 3px solid #70a14f;
-}
-
-.nav_bar a.active {
-    background-color: #A61746;
-    color: white;
-}
-
-/* --- Homepage Pokemon card styling --- */
-
-.cards_container {
-    display: grid;
+@media (max-width: 700px) {
+  main.layout {
     grid-template-columns: 1fr;
-    justify-items: center;
-    grid-gap: 40px;
+  }
+
+  .gif {
+    display: none;
+  }
 }
 
-.card_background {
-    width: 248px;
-    height: 339px;
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    margin: 20px;
-}
-
-.pokemon_card {
-    width: 225px;
-    height: 315px;
-    border-radius: 12px;
-    background: linear-gradient(to bottom, #F5ACC4, #FDEEF4);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    padding: 12px;
-    font-family: 'rainyhearts', sans-serif;
-    color: black;
-    -webkit-mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
-    mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
-    -webkit-mask-size: 800%;
-    mask-size: 800%;
-    -webkit-mask-position: 0;
-    mask-position: 0;
-}
-
-.pokemon_card:hover,
-.pokemon_card:focus-within {
-    transition: mask-position 2s ease, -webkit-mask-position 2s ease;
-    -webkit-mask-position: 120%;
-    mask-position: 120%;
-    opacity: 1;
-}
-
-.pokemon_card a {
-    color: inherit;
-    outline: none;
-}
-
-.pokemon_card:focus-within {
-    border: 4px solid black;
-}
-
-.card_header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.badge {
-    background-color: lightgrey;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-.card_image {
-    width: 100%;
-    height: 150px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-  
-.card_info {
-    background: rgba(255, 255, 255, 0.25);
-    padding: 6px;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-  
-.card_footer {
-    margin-top: 85px;
-    font-size: 0.75em;
-    text-align: center;
-}
-
-.attack {
-    background: rgba(255, 255, 255, 0.25);
-    padding: 6px;
-    border-radius: 6px;
-    margin-top: 6px;
-}
-
-.attack_name {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: bold;
-}
-
-.attack_description {
-    font-size: 14px;
-    text-align: left;
-}
-
-/* --- Game Info Card Styling --- */
-
-.flip_card_container {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    grid-gap: 40px;
-}
-
-.flip_card {
-    background-color: transparent;
-    width: 248px;
-    height: 339px;
-    perspective: 1000px;
-    display: block;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.flip_card:focus {
-    border: 4px solid #70a14f;
-    border-radius: 12px;
-    outline: none;      
-}
-
-.flip_card_inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip_card.flipped .flip_card_inner {
-    transform: rotateY(180deg);
-}
-
-.flip_card_front, .flip_card_back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.flip_card_front {
-    border-radius: 12px;
-    background: none;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    overflow: hidden;
-    border: none;
-}
-
-.flip_card_front img {
-    width: 248px;
-    height: 339px;
-}
-
-.flip_card_back {
-    color: white;
-    transform: rotateY(180deg);
-}
-
-.game_card {
-    width: 225px;
-    height: 315px;
-    border-radius: 12px;
-    background: linear-gradient(to bottom, #F5ACC4, #FDEEF4);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    padding: 12px;
-    font-family: 'rainyhearts', sans-serif;
-    color: black;
-    transition: transform 0.7s;
-}
-
-.game_footer {
-    margin-top: 25px;
-    font-size: 0.75em;
-    text-align: center;
-}
-
-/* --- Specific Card Footer Styling --- */
-
-.game_footer#cooking_mama, .game_footer#kirby_mass_attack, .game_footer#wii_sports_resort, 
-.game_footer#club_penguin, .game_footer#pokemon_moon, .game_footer#stardew, .game_footer#acnl, 
-.game_footer#genshin_impact, .game_footer#honkai {
-    margin-top: 15px;
-}
-
-.game_footer#minecraft, .game_footer#bandori, .game_footer#ace_attorney, .game_footer#baldurs, 
-.game_footer#acnh {
-    margin-top: 5px;
-}
-
-/* --- Footer Styling --- */
-
-.footer_bar {
-    bottom: 0;
-    width: 100%;
-    position: absolute;
-    background-color: black;
-    overflow: hidden;
-}
-
-.footer_bar p {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 100%;
-    font-family: 'Daydream';
-}
-
-@media (prefers-reduced-motion: reduce) {
-    /* Change background to still image */
-
-    body {
-        background-image: url('../images/pink_background.jpg');
-    }
-
-    .skip a {
-        transition: none;
-    }
-
-    /* Disable shine effect */
-    
-    .pokemon_card:hover {
-        transition: none;
-        -webkit-mask-position: none;
-        mask-position: none;
-        opacity: 1;
-    }
-
-    /* Change flipping animation */
-
-    .flip_card_inner {
-        transition: none;
-        transform: none;
-    }
-
-    .flip_card_front,
-    .flip_card_back {
-        backface-visibility: visible;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .flip_card:not(.flipped) .flip_card_front {
-        display: block;
-    }
-
-    .flip_card:not(.flipped) .flip_card_back {
-        display: none;
-    }
-
-    .flip_card.flipped .flip_card_front {
-        display: none;
-    }
-
-    .flip_card.flipped .flip_card_back {
-        display: block;
-        position: relative;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .cards_container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .flip_card_container {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}

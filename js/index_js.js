@@ -1,20 +1,57 @@
+let currentStep = 0;
 
-document.addEventListener("DOMContentLoaded", function() {
-    const ralts_sound = document.getElementById('ralts_sound');
-    const kirlia_sound = document.getElementById('kirlia_sound')
-    const gardevoir_sound = document.getElementById('gardevoir_sound');
+const steps = [
+  "9x-7i>9x-21u",
+  "-7i>-21u",
+  "i<3u"
+];
 
-    ralts_sound.volume = 0.5;
-    kirlia_sound.volume = 0.5;
-    gardevoir_sound.volume = 0.5;
+const instructions = [
+  "step 1: distribute the 3",
+  "step 2: subtract 9x from both sides",
+  "step 3: divide by −7"
+];
 
-    let sounds_enabled = true;
-});
+const displayedInequalities = [
+  "9x - 7i &gt; 9x - 21u",
+  "-7i &gt; -21u",
+  "-7i &gt; -21u"
+];
+
+function normalize(input) {
+  return input
+    .replace(/\s+/g, "")
+    .replace(/−/g, "-");
+}
 
 function displayInput() {
-        const inputText = document.getElementById("answer").value;
+  const input = document.getElementById("answer").value;
+  const instructionText = document.getElementById("step-instruction");
+  const inequalityText = document.getElementById("inequality");
 
-        if (inputText == "i <3 u") {
-            console.log("correct")
-        }
-};
+  if (normalize(input) === steps[currentStep]) {
+    document.getElementById("answer").value = "";
+    inequalityText.innerHTML = displayedInequalities[currentStep];
+    currentStep++;
+
+    if (currentStep === steps.length) {
+      setTimeout(() => {
+        window.location.href = "valentines.html";
+      }, 800);
+    } else {
+      instructionText.textContent = instructions[currentStep];
+    }
+  } else {
+    instructionText.textContent = "try again D:";
+    setTimeout(() => {
+      instructionText.textContent = instructions[currentStep];
+    }, 3000);
+  }
+}
+
+function startPuzzle() {
+  document.getElementById("greeting").classList.add("hidden");
+  document.getElementById("puzzle").classList.remove("hidden");
+}
+
+

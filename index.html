@@ -9,40 +9,45 @@
 </head>
 <body> 
 	<div id = "wrapper">
-			<audio id = "ralts_sound" src = "audio/Ralts.wav" preload = "auto"></audio>
-			<audio id = "kirlia_sound" src = "audio/Kirlia.wav" preload = "auto"></audio>
-			<audio id = "gardevoir_sound" src = "audio/Gardevoir.wav" preload = "auto"></audio>
+			<main class = "layout">
+				<!-- Greeting -->
+				<div id = "greeting" class = "content">
+					<h1>hi seth :3</h1>
+					<p>i made something for you!</p>
+					<button onclick = "startPuzzle()">enter!</button>
+				</div>
 
-			<header>
-				<!-- <nav>
-					<div class = "skip">
-						<a href = "#main">Skip to Main Content</a>
-						<a>meow</a>
+				<!-- Puzzle -->
+				<div id = "puzzle" class = "puzzle-layout hidden">
+
+					<div class = "gif left">
+						<img src = "place_holder.gif">
 					</div>
-					<div class = "nav_bar">
-						<ul>
-							<li><a class = "active" href="index.html">Home</a></li>
-							<li><a href="childhood.html">Childhood</a></li>
-							<li><a href="teens.html">Teens</a></li>
-							<li><a href="present.html">Present</a></li>
-						</ul>
+
+					<div class = "content">
+						<h1>
+							work through this inequality:
+						</h1>
+
+						<p id="inequality">
+							9x - 7i &gt; 3(3x - 7u)
+						</p>
+
+						<p id="step-instruction">step 1: distribute the 3</p>
+
+						<div class = "button_container">
+							<label for = "answer">enter your answer (no spaces!):</label>
+							<div class = "answer_container">
+								<input type = "text" id= "answer" name = "answer">
+								<button onclick="displayInput()">submit</button>
+							</div>
+						</div>
 					</div>
-				</nav> -->
-			</header>
-			<main>
-				<h1>
-					solve the following:<br>
-					9x - 7i > 3(3x - 7u)
-				</h1>
-				<div class = "button_container">
-				<label for = "answer">enter your answer:</label>
-				<div class = "answer_container">
-					<input type = "text" id= "answer" name = "answer">
-					<button onclick="displayInput()">submit</button>
-				</div>
-				</div>
-				<div>
-					<img src = "images/heart spinning kakao emote cute.gif" title = "me n you">
+
+					<div class = "gif right">
+						<img src = "images/heart spinning kakao emote cute.gif" title = "me n you">
+					</div>
+
 				</div>
 			</main>
 		<script src = "js/index_js.js"></script>
