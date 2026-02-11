@@ -39,10 +39,9 @@ main.layout {
   transition: opacity 0.5s ease;
 }
 
-img {
+.gif img {
   max-width: 200px;
   height: auto;
-  padding: 10px 10px;
 }
 
 .gif.left {
@@ -51,6 +50,11 @@ img {
 
 .gif.right {
   justify-self: start;
+}
+
+body {
+    background-image: url('../images/hearts_1.gif');
+    background-size: cover;
 }
 
 h1 {
