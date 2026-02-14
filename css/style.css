@@ -22,6 +22,10 @@ html, body {
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 main.layout {
   min-height: 100vh;
   display: flex;
@@ -40,7 +44,7 @@ main.layout {
 }
 
 img {
-  max-width: 200px;
+  max-width: 100%;
   height: auto;
   padding: 10px 10px;
 }
@@ -116,12 +120,37 @@ button {
 }
 
 @media (max-width: 700px) {
-  main.layout {
+
+  .puzzle-layout {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "top"
+      "content"
+      "bottom";
+    text-align: center;
+  }
+
+  .gif.left {
+    grid-area: top;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  .gif.right {
+    grid-area: bottom;
   }
 
   .gif {
-    display: none;
+    max-width: 150px;
+    margin: 20px auto;
+  }
+
+  input, button {
+    width: 100%;
   }
 }
+
+
 
